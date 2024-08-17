@@ -15,7 +15,7 @@ public class Scaler : MonoBehaviour
     }
     private void Start()
     {
-        _start = rb.mass;
+        rb.mass = _start;
     }
 
     public bool AddMass(float amount)

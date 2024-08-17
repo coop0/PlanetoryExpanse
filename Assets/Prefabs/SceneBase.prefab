@@ -44,10 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4121a59cd94f7464a8a71855c2748920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AvailableFuel: 0
-  MaxFuel: 1
-  DrainSpeed: -1
-  FillSpeed: 1
+  fuelManager: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &797383458089556281
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 3459930054621435289}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0034482742, y: -0.32413778, z: -0.004500015}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -354,3 +352,6 @@ MonoBehaviour:
   G: -2
   player: {fileID: 0}
   levelManager: {fileID: 4781670619722759844}
+  mainCamera: {fileID: 0}
+  rockPrefab: {fileID: 0}
+  _spawners: []
