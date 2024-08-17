@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        AvailableFuel = MaxFuel;
+        AvailableFuel = MaxFuel / 2;
     }
 
     public void Update()
