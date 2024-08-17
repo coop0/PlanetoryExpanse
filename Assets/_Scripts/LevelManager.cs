@@ -13,7 +13,9 @@ public class LevelManager : MonoBehaviour
         {
             // Disable the current level if there is oneif (currentLevel != null)
             {
-                currentLevel.SetActive(false);
+                if (currentLevel) {
+                    currentLevel.SetActive(false);
+                }
             }
 
             // Enable the new level

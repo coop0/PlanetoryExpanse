@@ -9,13 +9,16 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float G; // Gravitational constant
     [SerializeField] private PlayerController player;
+    [SerializeField] private LevelManager levelManager;
 
     public void LoadLevel(GameObject level)
     {
         GetStarsForLevel(level);
         GetRocksForLevel(level);
     }
-
+    private void Start() {
+        levelManager.LoadLevel("Level1");
+    }
     private void GetStarsForLevel(GameObject level)
     {
         // Get all Star components in the children of the level GameObject
