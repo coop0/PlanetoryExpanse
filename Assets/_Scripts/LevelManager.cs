@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     private GameObject currentLevel;  // Reference to the currently active levelvoid Start()
     private Dictionary<string, GameObject> levelDict = new Dictionary<string, GameObject>();
-    public void Start() {
+    public void Awake() {
         LoadAllLevels();
     }
      private void LoadAllLevels() {
