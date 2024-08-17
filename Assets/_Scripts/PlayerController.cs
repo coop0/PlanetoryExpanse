@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private FuelManager fuelManager;
+    [SerializeField] private GameManager gameManager;
 
     public void Update()
     {
@@ -27,6 +28,10 @@ public class PlayerController : MonoBehaviour
                     else fuelManager.UseFuel(false, Time.deltaTime, celestial);
                 }
             }
+        }
+        if (Input.GetKeyDown("w") == true) {
+            Debug.Log("key down w");
+            gameManager.SpawnRockFromSpawners();
         }
     }
 
