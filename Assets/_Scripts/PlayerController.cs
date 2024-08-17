@@ -5,19 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float AvailableFuel;
-    [SerializeField] private float MaxFuel;
-    [Range(0, -1)]
-    [SerializeField] private float DrainSpeed;
-    [Range(0, 1)]
-    [SerializeField] private float FillSpeed;
-
-    [SerializeField] private TextMeshProUGUI FuelDisplay;
-
-    private void Awake()
-    {
-        AvailableFuel = MaxFuel / 2;
-    }
+    [SerializeField] private FuelManager fuelManager;
 
     public void Update()
     {
@@ -28,33 +16,18 @@ public class PlayerController : MonoBehaviour
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-            print("casting");
+            //print("casting");
             if (hit.collider != null)
             {
-                print($"hit {hit.collider}");
+                //print($"hit {hit.collider}");
                 if (hit.collider.CompareTag("Celestial"))
                 {
                     var celestial = hit.collider.GetComponent<Scaler>();
-                    if (leftMouse) UseFuel(FillSpeed * Time.deltaTime, celestial);
-                    else UseFuel(DrainSpeed * Time.deltaTime, celestial);
+                    if (leftMouse) fuelManager.UseFuel(true, Time.deltaTime, celestial);
+                    else fuelManager.UseFuel(false, Time.deltaTime, celestial);
                 }
             }
         }
     }
-    private void UseFuel(float f, Scaler m)
-    {
-        if(AvailableFuel - f < 0)
-        {
-            // No fuel
-            return;
-        }
-        if (AvailableFuel - f > MaxFuel)
-        {
-            // Too much fuel
-            return;
-        }
-        AvailableFuel -= f; // Opposite to decrease when filling a star.
-        m.AddMass(f);
-        FuelDisplay.text = AvailableFuel.ToString().Substring(0,3);
-    }
+
 }

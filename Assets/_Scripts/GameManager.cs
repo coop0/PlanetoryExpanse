@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
         GetRocksForLevel(level);
     }
     private void Start() {
-        levelManager.LoadLevel("Level1");
     }
     private void GetStarsForLevel(GameObject level)
     {

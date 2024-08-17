@@ -6,44 +6,37 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     private GameObject currentLevel;  // Reference to the currently active levelvoid Start()
-    private Dictionary<string, GameObject> levelDict = new Dictionary<string, GameObject>();
     public void Awake() {
-        LoadAllLevels();
-    }
-     private void LoadAllLevels() {
-        // Load all prefabs from the "Levels" folder
-        GameObject[] levels = Resources.LoadAll<GameObject>("Levels");
-        foreach (GameObject level in levels)
+        // Retrieve the level name from PlayerPrefs or another source
+        string levelName = PlayerPrefs.GetString("SelectedLevel", null);
+
+        if (!string.IsNullOrEmpty(levelName))
         {
-            if (!levelDict.ContainsKey(level.name))
-            {
-                GameObject levelInstance = Instantiate(level);
-                levelInstance.SetActive(false); // Ensure levels are inactive initially
-                levelDict.Add(level.name, levelInstance);
-            }
+            LoadLevel(levelName);
         }
     }
-    public void LoadLevel(string levelName) {
-        // Find the level GameObject by name
-        levelDict.TryGetValue(levelName, out GameObject levelToLoad);
 
-        if (levelToLoad != null)
+    public void LoadLevel(string levelName)
+    {
+        // Load the level prefab from Resources
+        GameObject levelPrefab = Resources.Load<GameObject>("Levels/" + levelName);
+
+        if (levelPrefab != null)
         {
-            // Disable the current level if there is oneif (currentLevel != null)
+            if (currentLevel != null)
             {
-                if (currentLevel) {
-                    currentLevel.SetActive(false);
-                }
+                Destroy(currentLevel); // Destroy the previous level to free resources
             }
 
-            // Enable the new level
-            levelToLoad.SetActive(true);
-            currentLevel = levelToLoad;
-            gameManager.LoadLevel(levelToLoad);
+            currentLevel = Instantiate(levelPrefab);
+            currentLevel.SetActive(true);
+
+            // Notify game manager
+            gameManager.LoadLevel(currentLevel);
         }
         else
         {
-            Debug.LogWarning("Level not found: " + levelName);
+            Debug.LogWarning("Level prefab not found: " + levelName);
         }
     }
 

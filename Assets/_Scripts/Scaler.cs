@@ -18,9 +18,21 @@ public class Scaler : MonoBehaviour
         _start = rb.mass;
     }
 
-    public void AddMass(float amount)
+    public bool AddMass(float amount)
     {
+        if (amount > 0) {
+            if (rb.mass >= _max) {
+
+                return false;
+            }
+        }
+        else {
+            if (rb.mass <= _min) {
+                return false;
+            }
+        } 
         SetMass(rb.mass + amount);
+        return true;
     }
     public void SetMass(float amount)
     {
