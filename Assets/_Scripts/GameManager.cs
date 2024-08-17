@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
                 float r = Vector2.Distance(a.transform.position, b.transform.position);
                 var dir = (b.transform.position - a.transform.position).normalized;
                 var force = dir * (G * (m1 * m2) / (r * r));
-                print($"star mass: {m1}, rock mass: {m2}. G: {G}, r: {r}, dir: {dir}, force: {force}");
+                // print($"star mass: {m1}, rock mass: {m2}. G: {G}, r: {r}, dir: {dir}, force: {force}");
                 b.GetComponent<Rigidbody2D>().AddForce(force);
             }
         }

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 924539689350952816}
   - component: {fileID: 2326444322879596258}
   - component: {fileID: 9002351074664507978}
+  - component: {fileID: -3977179554447101965}
   m_Layer: 0
   m_Name: Star
-  m_TagString: Untagged
+  m_TagString: Celestial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +60,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 3
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -161,3 +162,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.8657408
+--- !u!114 &-3977179554447101965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524661047487244690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f60e4d48030b34a89347d3246f1247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _max: 5
+  _min: 1
+  _start: 0
+  rb: {fileID: 0}
