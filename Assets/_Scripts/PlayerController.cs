@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float DrainSpeed;
     [Range(0, 1)]
     [SerializeField] private float FillSpeed;
+
+    [SerializeField] private TextMeshProUGUI FuelDisplay;
 
     private void Awake()
     {
@@ -52,5 +55,6 @@ public class PlayerController : MonoBehaviour
         }
         AvailableFuel -= f; // Opposite to decrease when filling a star.
         m.AddMass(f);
+        FuelDisplay.text = AvailableFuel.ToString().Substring(0,3);
     }
 }
