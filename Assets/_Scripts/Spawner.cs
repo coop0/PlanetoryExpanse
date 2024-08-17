@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] public Vector2 velocity;
     [SerializeField] public Rock rockPrefab;
+    [SerializeField] public Target target;
 
     // Start is called before the first frame update
     void Start()
