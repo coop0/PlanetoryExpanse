@@ -1,13 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     private GameObject currentLevel;  // Reference to the currently active levelvoid Start()
-
+    private Dictionary<string, GameObject> levelDict = new Dictionary<string, GameObject>();
+    public void Start() {
+        LoadAllLevels();
+    }
+     private void LoadAllLevels() {
+        // Load all prefabs from the "Levels" folder
+        GameObject[] levels = Resources.LoadAll<GameObject>("Levels");
+        foreach (GameObject level in levels)
+        {
+            if (!levelDict.ContainsKey(level.name))
+            {
+                GameObject levelInstance = Instantiate(level);
+                levelInstance.SetActive(false); // Ensure levels are inactive initially
+                levelDict.Add(level.name, levelInstance);
+            }
+        }
+    }
     public void LoadLevel(string levelName) {
         // Find the level GameObject by name
-        GameObject levelToLoad = GameObject.Find(levelName);
+        levelDict.TryGetValue(levelName, out GameObject levelToLoad);
 
         if (levelToLoad != null)
         {
