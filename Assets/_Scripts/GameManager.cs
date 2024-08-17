@@ -52,11 +52,13 @@ public class GameManager : MonoBehaviour
             {
                 var a = star.gameObject;
                 var b = rock.gameObject;
-                float m1 = a.GetComponent<Rigidbody>().mass;
-                float m2 = b.GetComponent<Rigidbody>().mass;
-                float r = Vector3.Distance(a.transform.position, b.transform.position);
-
-                a.GetComponent<Rigidbody>().AddForce((b.transform.position - a.transform.position).normalized * (G * (m1 * m2) / (r * r)));
+                float m1 = a.GetComponent<Rigidbody2D>().mass;
+                float m2 = b.GetComponent<Rigidbody2D>().mass;
+                float r = Vector2.Distance(a.transform.position, b.transform.position);
+                var dir = (b.transform.position - a.transform.position).normalized;
+                var force = dir * (G * (m1 * m2) / (r * r));
+                print($"star mass: {m1}, rock mass: {m2}. G: {G}, r: {r}, dir: {dir}, force: {force}");
+                b.GetComponent<Rigidbody2D>().AddForce(force);
             }
         }
     }
