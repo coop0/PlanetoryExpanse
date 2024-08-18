@@ -22,11 +22,10 @@ public class FuelManager : MonoBehaviour
         if (sizeIncrease) {
             //We need fuel
             if(AvailableFuel - f < 0) {
-                Debug.Log("no fuel");
                 return;
             }
             if (m.AddMass(f)) {
-                AvailableFuel -= f; // Opposite to decrease when filling a star.
+                AvailableFuel -= f; // inverting f preserves the total fuel in the system.
                 UpdateResourceBar();
                 return;
             }
@@ -38,7 +37,6 @@ public class FuelManager : MonoBehaviour
         //Otherwise, we will gain fuel
         if (AvailableFuel - f > MaxFuel) {
             // Too much fuel
-            Debug.Log("too much fuel");
             return;
         }
         if (m.AddMass(-f)) {
