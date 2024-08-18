@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attractable : MonoBehaviour
+public abstract class Attractable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // See below for Abstract Properties
+    // https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/how-to-define-abstract-properties
+    public abstract float FireMagnitude
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        get;
     }
 }

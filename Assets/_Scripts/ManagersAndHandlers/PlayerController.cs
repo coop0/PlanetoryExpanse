@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
             if (hit != null)
             {
                 string tag = hit.tag;
-                print("Hit a " + tag);
+                //print("Hit a " + tag);
                 if (tag == "Scaler")
                 {
                     var celestial = hit.GetComponent<Scaler>();
@@ -38,9 +38,12 @@ public class PlayerController : MonoBehaviour
                 }
                 if(tag == "Draggable")
                 {
-                    print("Clicked a Draggable");
                     if(_leftMouse) hit.GetComponent<DragHandler>().OnDragEvent?.Invoke();
                     _dragging = hit;
+                }
+                if(tag == "Clickable")
+                {
+                    if(_leftFalling) hit.GetComponent<ClickHandler>().OnClickEvent?.Invoke();
                 }
             }
         }
@@ -80,12 +83,10 @@ public class PlayerController : MonoBehaviour
 
             if (_leftMouse)
             {
-                print("falling");
                 _leftFalling = true;
             }
             else
             {
-                print("rising");
                 _leftRising = true;
             }
         }

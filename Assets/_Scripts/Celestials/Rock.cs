@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Rock : Attractable
 {
-    // Start is called before the first frame update
-    void Start()
+    // NOTE: Static fields are not accessible through Serialization for reasons beyond my understanding
+    //private static float _fireMagnitude;
+    public override float FireMagnitude
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        get
+        {
+            return 10;
+        }
     }
 }

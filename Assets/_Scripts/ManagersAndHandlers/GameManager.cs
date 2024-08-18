@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<Attractor> _attractors = new List<Attractor>();
-    [SerializeField] private List<Attractable> _attractables = new List<Attractable>();
+    [SerializeField] private static List<Attractable> _attractables = new List<Attractable>();
 
     [SerializeField] private float G; // Gravitational constant
     [SerializeField] private PlayerController player;
@@ -15,6 +15,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Rock rockPrefab;
 
     [SerializeField] private List<Spawner> _spawners = new List<Spawner>();
+
+    public GameManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(this);
+    }
 
     public void LoadLevel(GameObject level)
     {
@@ -69,6 +76,16 @@ public class GameManager : MonoBehaviour
                 b.GetComponent<Rigidbody2D>().AddForce(force);
             }
         }
+    }
+
+    public static void AddAttractable(Attractable attractable)
+    {
+        if (attractable == null)
+        {
+            print("Tried to add null to _attractables list");
+            return;
+        }
+        _attractables.Add(attractable);
     }
     //removing, bring back if later wanted
     // public void SpawnRockAtCameraEdge()
