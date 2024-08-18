@@ -77,7 +77,17 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
+    public static void RemoveAttractable(Attractable attractable)
+    {
+        if (_attractables.Contains(attractable))
+        {
+            _attractables.Remove(attractable);
+        }
+        else
+        {
+            print("Not in List.");
+        }
+    }
     public static void AddAttractable(Attractable attractable)
     {
         if (attractable == null)

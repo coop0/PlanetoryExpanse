@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -17,10 +18,22 @@ public class Spawner : MonoBehaviour
         rockPrefab = LoadCelestial("Rock").GetComponent<Rock>();
         // Load other prefabs
 
-
-        // Spawn 
+        // Spawn inventory
+        AddRock();
+        AddRock();
+        AddRock();
+        AddRock();
+        AddRock();
+        AddRock();
+        AddRock();       
     }
-
+    private void Start()
+    {
+        foreach (Attractable item in _inventory)
+        {
+            GameManager.RemoveAttractable(item);
+        }
+    }
     private void UpdateInventory()
     {
         for(int i = 0; i < _inventory.Count && i < nodes.Count; i++)
@@ -53,8 +66,18 @@ public class Spawner : MonoBehaviour
         _inventory.RemoveAt(0);
         projectile.transform.SetParent(transform.parent);
         GameManager.AddAttractable(projectile);
-        Vector2 direction = Vector2.right; // TODO: Update this logic
-        projectile.GetComponent<Rigidbody2D>().velocity = direction * projectile.FireMagnitude;
+
+        // Get Rotation for force
+        Vector3 angleVector;
+        angleVector.x = projectile.transform.position.x - transform.position.x;
+        angleVector.y = projectile.transform.position.y - transform.position.y;
+        angleVector.z = 0;
+        angleVector.Normalize();
+
+        print("mag: " + projectile.FireMagnitude + ". Dir: " + angleVector.x + ", " + angleVector.y);
+        projectile.GetComponent<Rigidbody2D>().velocity = (new Vector3(angleVector.x, angleVector.y) * projectile.FireMagnitude);
+
+        UpdateInventory();
     }
 
     public static GameObject LoadCelestial(string prefabName)
