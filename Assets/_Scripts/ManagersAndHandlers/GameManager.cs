@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private List<Star> _stars = new List<Star>();
-    [SerializeField] private List<Rock> _rocks = new List<Rock>();
+    [SerializeField] private List<Attractor> _attractors = new List<Attractor>();
+    [SerializeField] private List<Attractable> _attractables = new List<Attractable>();
 
     [SerializeField] private float G; // Gravitational constant
     [SerializeField] private PlayerController player;
@@ -18,30 +18,28 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(GameObject level)
     {
-        GetStarsForLevel(level);
-        GetRocksForLevel(level);
+        GetAttractorsForLevel(level);
+        GetAttractablesForLevel(level);
         GetSpawnersForLevel(level);
     }
-    private void Start() {
-    }
-    private void GetStarsForLevel(GameObject level)
+    private void GetAttractorsForLevel(GameObject level)
     {
         // Get all Star components in the children of the level GameObject
-        Star[] starsArray = level.GetComponentsInChildren<Star>(true);
+        Attractor[] attractorArray = level.GetComponentsInChildren<Attractor>(true);
 
         // Clear the existing list and add the new items
-        _stars.Clear();
-        _stars.AddRange(starsArray);
+        _attractors.Clear();
+        _attractors.AddRange(attractorArray);
     }
 
-    private void GetRocksForLevel(GameObject level)
+    private void GetAttractablesForLevel(GameObject level)
     {
         // Get all Rock components in the children of the level GameObject
-        Rock[] rocksArray = level.GetComponentsInChildren<Rock>(true);
+        Attractable[] attractableArray = level.GetComponentsInChildren<Attractable>(true);
 
         // Clear the existing list and add the new items
-        _rocks.Clear();
-        _rocks.AddRange(rocksArray);
+        _attractables.Clear();
+        _attractables.AddRange(attractableArray);
     }
 
     private void GetSpawnersForLevel(GameObject level){
@@ -57,23 +55,21 @@ public class GameManager : MonoBehaviour
 
     void Gravity()
     {
-        foreach (Star star in _stars)
+        foreach (Attractor attractor in _attractors)
         {
-            foreach (Rock rock in _rocks)
+            foreach (Attractable attractable in _attractables)
             {
-                var a = star.gameObject;
-                var b = rock.gameObject;
+                var a = attractor.gameObject;
+                var b = attractable.gameObject;
                 float m1 = a.GetComponent<Rigidbody2D>().mass;
                 float m2 = b.GetComponent<Rigidbody2D>().mass;
                 float r = Vector2.Distance(a.transform.position, b.transform.position);
                 var dir = (b.transform.position - a.transform.position).normalized;
                 var force = dir * (G * (m1 * m2) / (r * r));
-                // print($"star mass: {m1}, rock mass: {m2}. G: {G}, r: {r}, dir: {dir}, force: {force}");
                 b.GetComponent<Rigidbody2D>().AddForce(force);
             }
         }
     }
-
     //removing, bring back if later wanted
     // public void SpawnRockAtCameraEdge()
     // {
@@ -86,10 +82,10 @@ public class GameManager : MonoBehaviour
     //     // Calculate the position at the left edge of the camera view
     //     Vector3 leftEdgePosition = GetCameraEdgePosition(mainCamera, -0.5f);
 
-    //     Rock rock = Instantiate(rockPrefab, leftEdgePosition, Quaternion.identity);
-    //     _rocks.Add(rock);
+    //     Rock attractable = Instantiate(rockPrefab, leftEdgePosition, Quaternion.identity);
+    //     _attractables.Add(attractable);
     //     // Add Rigidbody2D and set velocity
-    //     Rigidbody2D rb = rock.GetComponent<Rigidbody2D>();
+    //     Rigidbody2D rb = attractable.GetComponent<Rigidbody2D>();
 
     //     rb.velocity = new Vector2(3f, 0f);
     // }
@@ -102,11 +98,11 @@ public class GameManager : MonoBehaviour
     //     return worldPosition;
     // }
 
+    // TODO: Move this to Spawner.
     public void SpawnRockFromSpawners() {
         foreach(Spawner spawner in _spawners) {
             Rock rock = spawner.SpawnRock();
-            _rocks.Add(rock);
-
+            _attractables.Add(rock);
         }
     }
 }
