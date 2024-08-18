@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private List<Attractable> _inventory;
     [SerializeField] private List<Transform> nodes;
     private Coroutine _shortPause;
+    bool _canFire = true;
 
     private void Awake()
     {
@@ -58,13 +59,13 @@ public class Spawner : MonoBehaviour
     [ContextMenu("Try Fire")]
     public void TryFire()
     {
-        if(_inventory.Count == 0)
-        {
-            print("Empty stack");
-            return;
-        }
+        if (_inventory.Count == 0 || !_canFire) return;
+        _canFire = false;
+        // Get next missile
         Attractable projectile = _inventory[0];
         _inventory.RemoveAt(0);
+
+        // Move to worldspace
         projectile.transform.SetParent(transform.parent);
         GameManager.AddAttractable(projectile);
 
@@ -74,15 +75,21 @@ public class Spawner : MonoBehaviour
         angleVector.y = projectile.transform.position.y - transform.position.y;
         angleVector.z = 0;
         angleVector.Normalize();
-
-        print("mag: " + projectile.FireMagnitude + ". Dir: " + angleVector.x + ", " + angleVector.y);
+        
+        // Apply physics
         projectile.GetComponent<Rigidbody2D>().velocity = (new Vector3(angleVector.x, angleVector.y) * projectile.FireMagnitude);
+        
+        // Load next missile
         StartCoroutine(DelayedUpdateInventory());
     }
-
+    /// <summary>
+    /// If you update immediately, the gun will fire two at once. This adds a .5s pause.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator DelayedUpdateInventory()
     {
         yield return new WaitForSeconds(0.5f);
+        _canFire = true;
         UpdateInventory();
     }
 
