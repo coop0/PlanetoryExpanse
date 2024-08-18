@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private static Rock rockPrefab;
     [SerializeField] private List<Attractable> _inventory;
     [SerializeField] private List<Transform> nodes;
+    private Coroutine _shortPause;
 
     private void Awake()
     {
@@ -76,7 +77,12 @@ public class Spawner : MonoBehaviour
 
         print("mag: " + projectile.FireMagnitude + ". Dir: " + angleVector.x + ", " + angleVector.y);
         projectile.GetComponent<Rigidbody2D>().velocity = (new Vector3(angleVector.x, angleVector.y) * projectile.FireMagnitude);
+        StartCoroutine(DelayedUpdateInventory());
+    }
 
+    IEnumerator DelayedUpdateInventory()
+    {
+        yield return new WaitForSeconds(0.5f);
         UpdateInventory();
     }
 
