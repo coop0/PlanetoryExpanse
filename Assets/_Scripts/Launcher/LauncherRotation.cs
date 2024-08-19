@@ -17,12 +17,10 @@ public class LauncherRotation : MonoBehaviour
 
     public void StartRotating()
     {
-        print("Start");
         if(!rotating) rotating = true;
     }
     public void StopRotating()
     {
-        print("Stop");
         if(rotating) rotating = false;
     }
     private void RotateToMouse()

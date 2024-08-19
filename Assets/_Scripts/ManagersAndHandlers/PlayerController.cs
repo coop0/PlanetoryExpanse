@@ -62,11 +62,6 @@ public class PlayerController : MonoBehaviour
                 }                
             }
         }
-
-        if (Input.GetKeyDown("w") == true) {
-            Debug.Log("key down w");
-            gameManager.SpawnRockFromSpawners();
-        }
         ClearEdges();
     }
 

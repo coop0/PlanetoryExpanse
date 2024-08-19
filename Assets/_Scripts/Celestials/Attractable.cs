@@ -10,4 +10,13 @@ public abstract class Attractable : MonoBehaviour
     {
         get;
     }
+
+    private void Update()
+    {
+        if (Mathf.Abs(transform.position.x) > 30 || Mathf.Abs(transform.position.y) > 20)
+        {
+            GameManager.RemoveAttractable(this);
+            Destroy(gameObject);
+        }
+    }
 }

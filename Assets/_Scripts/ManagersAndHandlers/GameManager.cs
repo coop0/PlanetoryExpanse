@@ -14,9 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Camera mainCamera;
     [SerializeField] public Rock rockPrefab;
 
-    [SerializeField] private List<Spawner> _spawners = new List<Spawner>();
+    [SerializeField] private List<Launcher> _launchers = new List<Launcher>();
 
-    public GameManager Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     {
         GetAttractorsForLevel(level);
         GetAttractablesForLevel(level);
-        GetSpawnersForLevel(level);
     }
     private void GetAttractorsForLevel(GameObject level)
     {
@@ -49,12 +48,6 @@ public class GameManager : MonoBehaviour
         _attractables.AddRange(attractableArray);
     }
 
-    private void GetSpawnersForLevel(GameObject level){
-        Spawner[] spawnersArray = level.GetComponentsInChildren<Spawner>(true);
-
-        _spawners.Clear();
-        _spawners.AddRange(spawnersArray);
-    }
     private void Update()
     {
         Gravity();
@@ -101,6 +94,9 @@ public class GameManager : MonoBehaviour
         }
         _attractables.Add(attractable);
     }
+
+
+
     //removing, bring back if later wanted
     // public void SpawnRockAtCameraEdge()
     // {
@@ -130,10 +126,4 @@ public class GameManager : MonoBehaviour
     // }
 
     // TODO: Move this to Spawner.
-    public void SpawnRockFromSpawners() {
-        foreach(Spawner spawner in _spawners) {
-            Rock rock = spawner.SpawnRock();
-            _attractables.Add(rock);
-        }
-    }
 }

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Spawner : MonoBehaviour
+public class Launcher : MonoBehaviour
 {
     [SerializeField] private Vector2 velocity;
     [SerializeField] private static Rock rockPrefab;
@@ -19,14 +20,14 @@ public class Spawner : MonoBehaviour
     {
         _inventory = new();
         rockPrefab = LoadCelestial("Rock").GetComponent<Rock>();
-        missilePrefab = LoadCelestial("Missile").GetComponent<Missile>();
+        //missilePrefab = LoadCelestial("Missile").GetComponent<Missile>();
         // Load other prefabs
 
         // Spawn inventory
         AddRock();
         AddRock();
-        AddMissile();
-        AddMissile();
+        AddRock();
+        AddRock();
         AddRock();
         AddRock();
         AddRock();       
@@ -51,10 +52,8 @@ public class Spawner : MonoBehaviour
     {
         // make a rock
         Rock rock = Instantiate(rockPrefab, transform.position, Quaternion.identity);
-        print(_inventory.Count + " - > ");
-        _inventory.Add(rock);
-        print(_inventory.Count);
         rock.transform.parent = transform;
+        _inventory.Add(rock);
         UpdateInventory();
     }
     [ContextMenu("Add Missile")]
@@ -88,7 +87,9 @@ public class Spawner : MonoBehaviour
         angleVector.Normalize();
         
         // Apply physics
-        projectile.GetComponent<Rigidbody2D>().velocity = (new Vector3(angleVector.x, angleVector.y) * projectile.FireMagnitude);
+        var initVel = (new Vector3(angleVector.x, angleVector.y) * projectile.FireMagnitude);
+        projectile.GetComponent<Rigidbody2D>().velocity = initVel;
+        print(initVel + " => Magnitude " +  projectile.FireMagnitude + ", Angle: " + angleVector);
         
         // Load next missile
         StartCoroutine(DelayedUpdateInventory());
