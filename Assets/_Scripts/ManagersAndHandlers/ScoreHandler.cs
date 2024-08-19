@@ -75,10 +75,10 @@ public class ScoreHandler : MonoBehaviour
     public void PopulateScoreCard() {
         float totalFuelUsed = GameManager.Instance.GetTotalFuelUsed();
         float totalScore = _points;
-        float fastestHit = _hitRecord[0][1];
-        float slowestHit = _hitRecord[0][1];
+        float fastestHit = 1111; //_hitRecord[0][1];
+        float slowestHit = 1111; // _hitRecord[0][1];
         float longestFlight = 1111; //not implented TODO
-        float bestHitScore = _hitRecord[0][1];
+        float bestHitScore = 1111; //_hitRecord[0][1];
 
         foreach(List<float> hit in _hitRecord) {
             float mass = hit[0];
