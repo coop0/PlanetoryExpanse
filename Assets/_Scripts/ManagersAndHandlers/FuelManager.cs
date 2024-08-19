@@ -7,9 +7,9 @@ public class FuelManager : MonoBehaviour
 
     [SerializeField] private float AvailableFuel;
     [SerializeField] private float MaxFuel;
-    [Range(0, -1)]
+    [Range(100, 1000)]
     [SerializeField] private float DrainSpeed;
-    [Range(0, 1)]
+    [Range(100, 1000)]
     [SerializeField] private float FillSpeed;
 
     private void Awake()
@@ -18,33 +18,40 @@ public class FuelManager : MonoBehaviour
         UpdateResourceBar();
     }
 
-    public void UseFuel(bool sizeIncrease, float f, Scaler m) {
-        if (sizeIncrease) {
-            //We need fuel
-            if(AvailableFuel - f < 0) {
+    public void UseFuel(bool sizeIncrease, float amount, Scaler m) {
+        if (sizeIncrease) //We need fuel
+        {
+            float f = amount * FillSpeed;
+            if (AvailableFuel - f < 0)
+            {
                 return;
             }
-            if (m.AddMass(f)) {
+            if (m.AddMass(f))
+            {
                 AvailableFuel -= f; // inverting f preserves the total fuel in the system.
                 UpdateResourceBar();
                 return;
             }
-            else {
+            else
+            {
                 //Case when planet too big
                 return;
             }
         }
-        //Otherwise, we will gain fuel
-        if (AvailableFuel - f > MaxFuel) {
-            // Too much fuel
-            return;
+        else //Otherwise, we gain fuel
+        {
+            float f = amount * DrainSpeed;
+            if (AvailableFuel - f > MaxFuel) // Too much fuel
+            {
+                return;
+            }
+            if (m.AddMass(-f))
+            {
+                AvailableFuel += f; // Opposite to decrease when filling a star.
+                UpdateResourceBar();
+                return;
+            }
         }
-        if (m.AddMass(-f)) {
-            AvailableFuel += f; // Opposite to decrease when filling a star.
-            UpdateResourceBar();
-            return;
-        }
-        
     }
 
     private void UpdateResourceBar()

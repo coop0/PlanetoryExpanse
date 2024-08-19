@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private Vector2 velocity;
     [SerializeField] private static Rock rockPrefab;
+    [SerializeField] private static Missile missilePrefab;
     [SerializeField] private List<Attractable> _inventory;
     [SerializeField] private List<Transform> nodes;
     private Coroutine _shortPause;
@@ -18,13 +19,14 @@ public class Spawner : MonoBehaviour
     {
         _inventory = new();
         rockPrefab = LoadCelestial("Rock").GetComponent<Rock>();
+        missilePrefab = LoadCelestial("Missile").GetComponent<Missile>();
         // Load other prefabs
 
         // Spawn inventory
         AddRock();
         AddRock();
-        AddRock();
-        AddRock();
+        AddMissile();
+        AddMissile();
         AddRock();
         AddRock();
         AddRock();       
@@ -53,6 +55,15 @@ public class Spawner : MonoBehaviour
         _inventory.Add(rock);
         print(_inventory.Count);
         rock.transform.parent = transform;
+        UpdateInventory();
+    }
+    [ContextMenu("Add Missile")]
+    public void AddMissile()
+    {
+        // make a rock
+        Missile missile = Instantiate(missilePrefab, transform.position, Quaternion.identity);
+        _inventory.Add(missile);
+        missile.transform.parent = transform;
         UpdateInventory();
     }
 

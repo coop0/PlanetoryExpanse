@@ -60,7 +60,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -139,9 +139,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f60e4d48030b34a89347d3246f1247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _max: 10
-  _min: 2
-  _start: 7
+  _max: 150
+  _min: 20
+  _start: 60
+  _sizeConstant: 0.5
   rb: {fileID: 2208569670720478620}
 --- !u!58 &2076775740673483903
 CircleCollider2D:

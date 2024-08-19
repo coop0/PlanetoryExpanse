@@ -73,7 +73,11 @@ public class GameManager : MonoBehaviour
                 float r = Vector2.Distance(a.transform.position, b.transform.position);
                 var dir = (b.transform.position - a.transform.position).normalized;
                 var force = dir * (G * (m1 * m2) / (r * r));
-                b.GetComponent<Rigidbody2D>().AddForce(force);
+                var rb = b.GetComponent<Rigidbody2D>();
+                rb.AddForce(force);
+                //Rotation
+                //var velDir = rb.velocity.normalized;
+                //var angleDir = Mathf.Atan2(velDir.y, velDir.x) * Mathf.Rad2Deg;
             }
         }
     }

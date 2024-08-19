@@ -7,6 +7,7 @@ public class Scaler : MonoBehaviour
     [SerializeField] private float _max;
     [SerializeField] private float _min;
     [SerializeField] private float _start;
+    [SerializeField] private float _sizeConstant;
     [SerializeField] private Rigidbody2D rb;
 
     private void Awake()
@@ -15,7 +16,7 @@ public class Scaler : MonoBehaviour
     }
     private void Start()
     {
-        rb.mass = _start;
+        SetMass(_start);
     }
 
     public bool AddMass(float amount)
@@ -44,6 +45,7 @@ public class Scaler : MonoBehaviour
     private void UpdateSize()
     {
         var percentage = rb.mass / _start;
+        percentage *= _sizeConstant;
         transform.localScale = new Vector3(percentage, percentage, 0);
     }
 }
