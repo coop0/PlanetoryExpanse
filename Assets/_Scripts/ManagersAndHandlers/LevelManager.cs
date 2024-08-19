@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    private GameObject currentLevel;  // Reference to the currently active levelvoid Start()
-
+    private GameObject currentLevel;
+    private string currentLevelName;
     public static LevelManager Instance { get; private set; }
     public void Awake()
     {
@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
+        currentLevelName = levelName;
         // Load the level prefab from Resources
         GameObject levelPrefab = Resources.Load<GameObject>("Levels/" + levelName);
 
@@ -51,8 +52,7 @@ public class LevelManager : MonoBehaviour
     public void ReloadCurrentLevel() {
         if (currentLevel != null)
         {
-            currentLevel.SetActive(false);
-            currentLevel.SetActive(true);
+            LoadLevel(currentLevelName);
         }
         else
         {

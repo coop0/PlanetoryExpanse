@@ -18,6 +18,10 @@ public class FuelManager : MonoBehaviour
         UpdateResourceBar();
     }
 
+    public void ResetFuel() {
+        AvailableFuel = MaxFuel/2;
+        UpdateResourceBar();
+    }
     public void UseFuel(bool sizeIncrease, float amount, Scaler m) {
         if (sizeIncrease) //We need fuel
         {

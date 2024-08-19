@@ -31,12 +31,8 @@ public class Launcher : MonoBehaviour
         AddRock();
         AddRock();
         AddRock();
-
-        foreach (Attractable item in _inventory)
-        {
-            GameManager.RemoveAttractable(item);
-        }
     }
+    
     private void UpdateInventory()
     {
         for(int i = 0; i < _inventory.Count && i < nodes.Count; i++)

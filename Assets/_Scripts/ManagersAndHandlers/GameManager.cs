@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,18 +11,29 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float G; // Gravitational constant
     [SerializeField] private LevelManager levelManager;
-
+    [SerializeField] private GameObject pauseMenuUI; // Reference to the Pause Menu UI
+    [SerializeField] private FuelManager fuelManager;
+    [SerializeField] private ScoreHandler scoreHandler;
+    private bool isPaused = false; // Track if the game is paused
     public static GameManager Instance { get; private set; }
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(this);
-    }
+        //Time.timeScale = 1f; // Resume the game
 
+    }
+    private void ResetGame() {
+        _attractables.Clear();
+        _attractors.Clear();
+        fuelManager.ResetFuel();
+        scoreHandler.ResetScore();
+
+    }
     public void LoadLevel(GameObject level)
     {
+        ResetGame();
         GetAttractorsForLevel(level);
-        GetAttractablesForLevel(level);
     }
     private void GetAttractorsForLevel(GameObject level)
     {
@@ -42,9 +55,19 @@ public class GameManager : MonoBehaviour
         _attractables.AddRange(attractableArray);
     }
 
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) // Press 'Escape' to pause/unpause
+        {
+            if (isPaused) ResumeGame();
+            else PauseGame();
+        }
+    }
     private void FixedUpdate()
     {
-        Gravity();
+        if (!isPaused)
+        {
+            Gravity();
+        }
     }
 
     void Gravity()
@@ -53,6 +76,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (Attractable attractable in _attractables)
             {
+                print("attracting");
                 var a = attractor.gameObject;
                 var b = attractable.gameObject;
                 float m1 = a.GetComponent<Rigidbody2D>().mass;
@@ -85,36 +109,29 @@ public class GameManager : MonoBehaviour
         }
         _attractables.Add(attractable);
     }
+       public void PauseGame()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f; // Freeze the game
+        isPaused = true;
+    }
 
+    public void ResumeGame()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f; // Resume the game
+        isPaused = false;
+        print("game resume");
+    }
 
-
-    //removing, bring back if later wanted
-    // public void SpawnRockAtCameraEdge()
-    // {
-    //     if (mainCamera == null || rockPrefab == null)
-    //     {
-    //         Debug.LogError("Camera or Prefab not assigned.");
-    //         return;
-    //     }
-
-    //     // Calculate the position at the left edge of the camera view
-    //     Vector3 leftEdgePosition = GetCameraEdgePosition(mainCamera, -0.5f);
-
-    //     Rock attractable = Instantiate(rockPrefab, leftEdgePosition, Quaternion.identity);
-    //     _attractables.Add(attractable);
-    //     // Add Rigidbody2D and set velocity
-    //     Rigidbody2D rb = attractable.GetComponent<Rigidbody2D>();
-
-    //     rb.velocity = new Vector2(3f, 0f);
-    // }
-
-    // private Vector3 GetCameraEdgePosition(Camera camera, float xViewPortPosition)
-    // {
-    //     // Calculate the viewport position with a Z value large enough to ensure the object is in front of the camera
-    //     Vector3 viewportPosition = new Vector3(xViewPortPosition, 0.5f, Mathf.Abs(camera.transform.position.z - camera.nearClipPlane) + 1f);
-    //     Vector3 worldPosition = camera.ViewportToWorldPoint(viewportPosition)/2;
-    //     return worldPosition;
-    // }
-
-    // TODO: Move this to Spawner.
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        ResumeGame();
+    }
+    
+    public void RestartLevel() {
+        levelManager.ReloadCurrentLevel();
+        ResumeGame();
+    }
 }

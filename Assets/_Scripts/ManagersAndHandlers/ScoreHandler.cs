@@ -23,6 +23,10 @@ public class ScoreHandler : MonoBehaviour
         _points = 0;
         UpdateDisplay();
     }
+    public void ResetScore() {
+        _points = 0;
+        UpdateDisplay();
+    }
     public void AddPoints(int points)
     {
         _points += points;
