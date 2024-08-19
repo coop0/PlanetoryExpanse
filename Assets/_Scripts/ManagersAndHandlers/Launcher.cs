@@ -16,7 +16,7 @@ public class Launcher : MonoBehaviour
     private Coroutine _shortPause;
     bool _canFire = true;
 
-    private void Start()
+    private void Awake()
     {
         _inventory = new();
         rockPrefab = LoadCelestial("Rock").GetComponent<Rock>();
@@ -120,5 +120,7 @@ public class Launcher : MonoBehaviour
 
         return rock;
     }
-
+    public bool IsEmpty() {
+        return _inventory.Count == 0;
+    }
 }

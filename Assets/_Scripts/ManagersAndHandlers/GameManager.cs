@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<Attractor> _attractors = new List<Attractor>();
     [SerializeField] private static List<Attractable> _attractables = new List<Attractable>();
-
+    [SerializeField] private List<Launcher> _launchers = new List<Launcher>();
     [SerializeField] private float G; // Gravitational constant
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private GameObject pauseMenuUI; // Reference to the Pause Menu UI
@@ -34,7 +34,9 @@ public class GameManager : MonoBehaviour
     {
         ResetGame();
         GetAttractorsForLevel(level);
+        GetLaunchersForLevel(level);
     }
+
     private void GetAttractorsForLevel(GameObject level)
     {
         // Get all Star components in the children of the level GameObject
@@ -43,6 +45,12 @@ public class GameManager : MonoBehaviour
         // Clear the existing list and add the new items
         _attractors.Clear();
         _attractors.AddRange(attractorArray);
+    }
+
+    private void GetLaunchersForLevel(GameObject level) {
+        Launcher[] launchers = level.GetComponentsInChildren<Launcher>(true);
+        _launchers.Clear();
+        _launchers.AddRange(launchers);
     }
 
     private void GetAttractablesForLevel(GameObject level)
@@ -68,6 +76,22 @@ public class GameManager : MonoBehaviour
         {
             Gravity();
         }
+        bool OutOfObjects = true;
+        if (_attractables.Count == 0) {
+            foreach(Launcher launcher in _launchers) {
+                if (!launcher.IsEmpty()) {
+                    OutOfObjects = false;
+                }
+            }
+        }
+        else {
+            OutOfObjects = false;
+        }
+
+        if (OutOfObjects) {
+            Time.timeScale = 0f; // Freeze the game
+            ScoreHandler.Instance.ShowEndGameUi(true);
+        }
     }
 
     void Gravity()
@@ -76,7 +100,6 @@ public class GameManager : MonoBehaviour
         {
             foreach (Attractable attractable in _attractables)
             {
-                print("attracting");
                 var a = attractor.gameObject;
                 var b = attractable.gameObject;
                 float m1 = a.GetComponent<Rigidbody2D>().mass;
@@ -121,17 +144,26 @@ public class GameManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f; // Resume the game
         isPaused = false;
-        print("game resume");
     }
 
     public void QuitToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
         ResumeGame();
+        ScoreHandler.Instance.ShowEndGameUi(false);
+
     }
     
     public void RestartLevel() {
         levelManager.ReloadCurrentLevel();
         ResumeGame();
+        ScoreHandler.Instance.ShowEndGameUi(false);
+    }
+
+    public void NextLevel() {
+        levelManager.LoadNextLevel();
+        ResumeGame();
+        ScoreHandler.Instance.ShowEndGameUi(false);
+
     }
 }

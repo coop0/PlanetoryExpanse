@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    private int n;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var rb = collision.gameObject.GetComponent<Rigidbody2D>();
@@ -12,7 +13,8 @@ public class Target : MonoBehaviour
         }
         else
         {
-            ScoreHandler.Instance.AddPoints(Mathf.RoundToInt(rb.velocity.magnitude));
+            ScoreHandler.Instance.AddHit (rb.mass, rb.velocity.magnitude, n);
+            n+=1;
         }
     }
 }

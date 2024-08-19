@@ -59,4 +59,14 @@ public class LevelManager : MonoBehaviour
             Debug.LogWarning("No current level to reload.");
         }
     }
+
+    public void LoadNextLevel() {
+        print("ready for next level");
+        char lastChar = currentLevelName[currentLevelName.Length - 1];
+        int lastNumber = int.Parse(lastChar.ToString());
+        lastNumber++;
+        string nextLevel = currentLevelName.Substring(0, currentLevelName.Length - 1) + lastNumber.ToString();
+        //print(nextLevel);
+        LoadLevel(nextLevel);
+    }
 }
