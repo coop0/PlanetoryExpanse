@@ -41,8 +41,10 @@ public class Scaler : MonoBehaviour
     }
     private void UpdateSize()
     {
-        var percentage = rb.mass / _start;
-        percentage *= _sizeConstant;
-        transform.localScale = new Vector3(percentage, percentage, 0);
+        var percentage = rb.mass / _max;
+        var sizing = percentage * _sizeConstant;
+        SoundManager.Instance.PlayPercentage(1 - sizing);
+        transform.localScale = new Vector3(sizing, sizing, 0);
     }
+
 }
