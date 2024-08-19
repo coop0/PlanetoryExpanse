@@ -161,6 +161,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void NextLevel() {
+        print("Trying to load next level");
         levelManager.LoadNextLevel();
         ResumeGame();
         ScoreHandler.Instance.ShowEndGameUi(false);

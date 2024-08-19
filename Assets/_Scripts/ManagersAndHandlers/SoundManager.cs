@@ -8,7 +8,8 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public AudioSource _audioSource { get; private set; }
-    [SerializeField] private AudioSource _audioObject;
+    [SerializeField] private AudioSource _sfxObj;
+    [SerializeField] private AudioSource _musicObj;
     [SerializeField] private AudioClip _backgroundMusic;
     [SerializeField] private AudioClip _FireSFX;
     [SerializeField] private AudioClip _HitSFX;
@@ -26,12 +27,24 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         _clipQueue = new();
+        StartAmbience();
     }
-
+    private void StartAmbience()
+    {
+        PlayMusicClip(null);
+    }
+    public void PlayMusicClip(AudioClip track)
+    {
+        var obj = Instantiate(_musicObj, transform);
+        if(track != null)
+        {
+            obj.clip = track;
+        }
+    }
     public void PlaySFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
     {
         // Create instance of prefab and assign parameters.
-        AudioSource audioSource = Instantiate(_audioObject, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource = Instantiate(_sfxObj, spawnTransform.position, Quaternion.identity);
         audioSource.clip = audioClip;
         audioSource.volume = volume;
         audioSource.Play();

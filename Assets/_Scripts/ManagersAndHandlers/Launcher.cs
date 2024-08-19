@@ -30,7 +30,6 @@ public class Launcher : MonoBehaviour
         AddRock();
         AddRock();
         AddRock();
-        AddRock();
     }
     
     private void UpdateInventory()
