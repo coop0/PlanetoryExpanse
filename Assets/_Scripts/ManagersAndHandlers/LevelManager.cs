@@ -12,7 +12,9 @@ public class LevelManager : MonoBehaviour
         // Singleton
         if (Instance == null) Instance = this;
         else Destroy(this);
-
+    }
+    private void Start()
+    {
         // Retrieve the level name from PlayerPrefs or another source
         string levelName = PlayerPrefs.GetString("SelectedLevel", null);
 

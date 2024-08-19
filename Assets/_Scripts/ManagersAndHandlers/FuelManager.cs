@@ -12,7 +12,7 @@ public class FuelManager : MonoBehaviour
     [Range(100, 1000)]
     [SerializeField] private float FillSpeed;
 
-    private void Awake()
+    private void Start()
     {
         AvailableFuel = MaxFuel/2;
         UpdateResourceBar();

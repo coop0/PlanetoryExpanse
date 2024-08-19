@@ -16,6 +16,10 @@ public class ScoreHandler : MonoBehaviour
             Instance = this;
         }
         else Destroy(this);
+    }
+
+    private void Start()
+    {
         _points = 0;
         UpdateDisplay();
     }

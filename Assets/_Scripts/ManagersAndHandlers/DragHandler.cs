@@ -11,7 +11,7 @@ public class DragHandler : MonoBehaviour
 {
     public UnityEvent OnDragEvent;
     public UnityEvent OnReleaseEvent;
-    private void Awake()
+    private void Start()
     {
         gameObject.tag = "Draggable";
         gameObject.TryGetComponent<Collider2D>(out var temp);

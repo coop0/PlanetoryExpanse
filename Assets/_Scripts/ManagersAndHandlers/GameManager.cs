@@ -62,9 +62,6 @@ public class GameManager : MonoBehaviour
                 var force = dir * (G * (m1 * m2) / (r * r));
                 var rb = b.GetComponent<Rigidbody2D>();
                 rb.AddForce(force);
-                //Rotation
-                //var velDir = rb.velocity.normalized;
-                //var angleDir = Mathf.Atan2(velDir.y, velDir.x) * Mathf.Rad2Deg;
             }
         }
     }

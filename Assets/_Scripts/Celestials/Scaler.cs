@@ -10,12 +10,9 @@ public class Scaler : MonoBehaviour
     [SerializeField] private float _sizeConstant;
     [SerializeField] private Rigidbody2D rb;
 
-    private void Awake()
-    {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-    }
     private void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody2D>();
         SetMass(_start);
     }
 

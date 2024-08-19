@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class ClickHandler : MonoBehaviour
 {
     public UnityEvent OnClickEvent;
-    private void Awake()
+    private void Start()
     {
         gameObject.tag = "Clickable";
         gameObject.TryGetComponent<Collider2D>(out var temp);

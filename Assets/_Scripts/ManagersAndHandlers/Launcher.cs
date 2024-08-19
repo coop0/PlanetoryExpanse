@@ -16,7 +16,7 @@ public class Launcher : MonoBehaviour
     private Coroutine _shortPause;
     bool _canFire = true;
 
-    private void Awake()
+    private void Start()
     {
         _inventory = new();
         rockPrefab = LoadCelestial("Rock").GetComponent<Rock>();
@@ -30,10 +30,8 @@ public class Launcher : MonoBehaviour
         AddRock();
         AddRock();
         AddRock();
-        AddRock();       
-    }
-    private void Start()
-    {
+        AddRock();
+
         foreach (Attractable item in _inventory)
         {
             GameManager.RemoveAttractable(item);

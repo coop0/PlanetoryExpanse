@@ -15,11 +15,12 @@ public class Rock : Attractable
             return _fireMagnitude;
         }
     }
-    private void Awake()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         if (_animator == null) throw new System.Exception("Rock missing animator.");
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
