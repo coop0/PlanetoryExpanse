@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class FuelManager : MonoBehaviour
 {
@@ -11,14 +12,16 @@ public class FuelManager : MonoBehaviour
     [SerializeField] private float DrainSpeed;
     [Range(100, 1000)]
     [SerializeField] private float FillSpeed;
-
+    public float fuelUsed;
     private void Start()
     {
+        fuelUsed = 0;
         AvailableFuel = MaxFuel/2;
         UpdateResourceBar();
     }
 
     public void ResetFuel() {
+        fuelUsed = 0;
         AvailableFuel = MaxFuel/2;
         UpdateResourceBar();
     }
@@ -52,6 +55,7 @@ public class FuelManager : MonoBehaviour
             if (m.AddMass(-f))
             {
                 AvailableFuel += f; // Opposite to decrease when filling a star.
+                fuelUsed += Math.Abs(f);
                 UpdateResourceBar();
                 return;
             }

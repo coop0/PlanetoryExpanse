@@ -166,4 +166,7 @@ public class GameManager : MonoBehaviour
         ScoreHandler.Instance.ShowEndGameUi(false);
 
     }
+    public float GetTotalFuelUsed() {
+        return this.fuelManager.fuelUsed;
+    }
 }
