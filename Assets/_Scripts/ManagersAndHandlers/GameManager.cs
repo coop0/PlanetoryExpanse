@@ -8,13 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private static List<Attractable> _attractables = new List<Attractable>();
 
     [SerializeField] private float G; // Gravitational constant
-    [SerializeField] private PlayerController player;
     [SerializeField] private LevelManager levelManager;
-
-    [SerializeField] public Camera mainCamera;
-    [SerializeField] public Rock rockPrefab;
-
-    [SerializeField] private List<Launcher> _launchers = new List<Launcher>();
 
     public static GameManager Instance { get; private set; }
     private void Awake()
@@ -48,7 +42,7 @@ public class GameManager : MonoBehaviour
         _attractables.AddRange(attractableArray);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Gravity();
     }

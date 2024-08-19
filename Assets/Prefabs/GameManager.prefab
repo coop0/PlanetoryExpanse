@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4ea86c693343b4c9085bd9ddd5f6dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stars: []
-  _rocks: []
+  _attractors: []
+  G: -10
   player: {fileID: 0}
+  levelManager: {fileID: 0}
+  mainCamera: {fileID: 0}
+  rockPrefab: {fileID: 0}
+  _launchers: []

@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
     private GameObject currentLevel;  // Reference to the currently active levelvoid Start()
-    public void Awake() {
+
+    public static LevelManager Instance { get; private set; }
+    public void Awake()
+    {
+        // Singleton
+        if (Instance == null) Instance = this;
+        else Destroy(this);
+
         // Retrieve the level name from PlayerPrefs or another source
         string levelName = PlayerPrefs.GetString("SelectedLevel", null);
 
@@ -32,7 +38,7 @@ public class LevelManager : MonoBehaviour
             currentLevel.SetActive(true);
 
             // Notify game manager
-            gameManager.LoadLevel(currentLevel);
+            GameManager.Instance.LoadLevel(currentLevel);
         }
         else
         {

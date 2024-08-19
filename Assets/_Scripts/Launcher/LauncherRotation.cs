@@ -7,7 +7,7 @@ public class LauncherRotation : MonoBehaviour
     [SerializeField] private int HandleOffsetDegrees;
     [SerializeField] private bool rotating;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (rotating)
         {

@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private Collider2D _dragging;
 
 
-    public void Update()
+    public void FixedUpdate()
     {
         FindEdges();
         // Falling and held interactions - Shouldn't be checked while something is being dragged.
