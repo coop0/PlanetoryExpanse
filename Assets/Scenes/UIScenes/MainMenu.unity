@@ -970,6 +970,30 @@ PrefabInstance:
       propertyPath: _backgroundMusic
       value: 
       objectReference: {fileID: 8300000, guid: a3508ec9f30b8a347b50b577f543ef8e, type: 3}
+    - target: {fileID: 1791791162400231324, guid: 18e002e8d61c41c4c973e4d41613620c, type: 3}
+      propertyPath: _timpaniNotes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1791791162400231324, guid: 18e002e8d61c41c4c973e4d41613620c, type: 3}
+      propertyPath: _timpaniNotes.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fb735cebb2fc8af48a0d9cb17612b927, type: 3}
+    - target: {fileID: 1791791162400231324, guid: 18e002e8d61c41c4c973e4d41613620c, type: 3}
+      propertyPath: _timpaniNotes.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c847d0780ababc45b3d94bbaf076862, type: 3}
+    - target: {fileID: 1791791162400231324, guid: 18e002e8d61c41c4c973e4d41613620c, type: 3}
+      propertyPath: _timpaniNotes.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e8157654e369f04eb99288534a394b5, type: 3}
+    - target: {fileID: 1791791162400231324, guid: 18e002e8d61c41c4c973e4d41613620c, type: 3}
+      propertyPath: _timpaniNotes.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 10842a0cd0480054086a4fdee8514322, type: 3}
+    - target: {fileID: 1791791162400231324, guid: 18e002e8d61c41c4c973e4d41613620c, type: 3}
+      propertyPath: _timpaniNotes.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c844d7ab558acb47a7baf74c0755855, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
