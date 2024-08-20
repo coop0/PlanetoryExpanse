@@ -38,7 +38,7 @@ public class ScoreHandler : MonoBehaviour
         _hitRecord.Clear();
         UpdateDisplay();
     }
-    public void AddHit(float mass, float velocity, int n) 
+    public void AddHit(float mass, float velocity, int n, float flightTime) 
     {
         List<float> hit = new List<float>();
         hit.Add(mass);
@@ -46,6 +46,7 @@ public class ScoreHandler : MonoBehaviour
         hit.Add(n);
         int score = Mathf.RoundToInt(velocity);
         hit.Add(score);
+        hit.Add(flightTime);
         _hitRecord.Add(hit);
         AddPoints(score);
     }
@@ -78,14 +79,15 @@ public class ScoreHandler : MonoBehaviour
         if (_hitRecord.Count > 0) {
             float fastestHit = _hitRecord[0][1];
             float slowestHit = _hitRecord[0][1];
-            float longestFlight = 1111; //not implented TODO
-            float bestHitScore = _hitRecord[0][1];
+            float longestFlight = _hitRecord[0][4];
+            float bestHitScore = _hitRecord[0][3];
 
             foreach(List<float> hit in _hitRecord) {
                 float mass = hit[0];
                 float velocity = hit[1];
                 float number = hit[2];
                 float score = hit[3];
+                float flightTime = hit[4];
 
                 if (velocity > fastestHit) {
                     fastestHit = velocity;
@@ -96,13 +98,16 @@ public class ScoreHandler : MonoBehaviour
                 if (bestHitScore < score) {
                     bestHitScore = score;
                 }
+                if (longestFlight < flightTime) {
+                    longestFlight = flightTime;
+                }
             }
-            totalScoreUI.text = totalScore.ToString();
-            fastestHitUI.text = fastestHit.ToString();
-            slowestHitUI.text = slowestHit.ToString();
-            longestFlightTimeUI.text = longestFlight.ToString();
-            bestHitUI.text = bestHitScore.ToString();
-            fuelUsedUI.text = totalFuelUsed.ToString();
+            totalScoreUI.text = System.Math.Round(totalScore, 2).ToString();
+            fastestHitUI.text = System.Math.Round(fastestHit, 2).ToString();
+            slowestHitUI.text = System.Math.Round(slowestHit, 2).ToString();
+            longestFlightTimeUI.text = System.Math.Round(longestFlight, 2).ToString();
+            bestHitUI.text = System.Math.Round(bestHitScore, 2).ToString();
+            fuelUsedUI.text = System.Math.Round(totalFuelUsed, 2).ToString();
         }
     }
 }
