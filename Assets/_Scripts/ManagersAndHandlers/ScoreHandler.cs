@@ -16,6 +16,7 @@ public class ScoreHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI longestFlightTimeUI;
     [SerializeField] private TextMeshProUGUI bestHitUI;
     [SerializeField] private TextMeshProUGUI fuelUsedUI;
+    [SerializeField] private TextMeshProUGUI shortestFlightUI;
 
     private List<List<float>> _hitRecord = new List<List<float>>();
     public static ScoreHandler Instance { get; private set; }
@@ -81,7 +82,7 @@ public class ScoreHandler : MonoBehaviour
             float slowestHit = _hitRecord[0][1];
             float longestFlight = _hitRecord[0][4];
             float bestHitScore = _hitRecord[0][3];
-
+            float shortestFlight = _hitRecord[0][4];
             foreach(List<float> hit in _hitRecord) {
                 float mass = hit[0];
                 float velocity = hit[1];
@@ -101,6 +102,9 @@ public class ScoreHandler : MonoBehaviour
                 if (longestFlight < flightTime) {
                     longestFlight = flightTime;
                 }
+                if (shortestFlight > flightTime) {
+                    shortestFlight = flightTime;
+                }
             }
             totalScoreUI.text = System.Math.Round(totalScore, 2).ToString();
             fastestHitUI.text = System.Math.Round(fastestHit, 2).ToString();
@@ -108,6 +112,7 @@ public class ScoreHandler : MonoBehaviour
             longestFlightTimeUI.text = System.Math.Round(longestFlight, 2).ToString();
             bestHitUI.text = System.Math.Round(bestHitScore, 2).ToString();
             fuelUsedUI.text = System.Math.Round(totalFuelUsed, 2).ToString();
+            shortestFlightUI.text = System.Math.Round(shortestFlight, 2).ToString();
         }
     }
 }

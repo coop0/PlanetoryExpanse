@@ -620,7 +620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &51602044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1068,12 +1068,13 @@ MonoBehaviour:
   _display: {fileID: 517515078}
   levelEndUi: {fileID: 924416683}
   successHeading: {fileID: 1941392623}
-  totalScoreUI: {fileID: 1566874130}
-  fastestHitUI: {fileID: 1165444264}
-  slowestHitUI: {fileID: 100137400}
-  longestFlightTimeUI: {fileID: 1791558769}
-  bestHitUI: {fileID: 1052915064}
-  fuelUsedUI: {fileID: 1246524695}
+  totalScoreUI: {fileID: 1790614471}
+  fastestHitUI: {fileID: 1467558744}
+  slowestHitUI: {fileID: 2037859116}
+  longestFlightTimeUI: {fileID: 1634727368}
+  bestHitUI: {fileID: 1952813388}
+  fuelUsedUI: {fileID: 1767436055}
+  shortestFlightUI: {fileID: 4484990}
 --- !u!1 &140349042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,6 +2432,18 @@ PrefabInstance:
       value: 502.3501
       objectReference: {fileID: 0}
     - target: {fileID: 8713714233665154809, guid: a033e56a7359b64499f781aa44ddd08b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713714233665154809, guid: a033e56a7359b64499f781aa44ddd08b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713714233665154809, guid: a033e56a7359b64499f781aa44ddd08b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713714233665154809, guid: a033e56a7359b64499f781aa44ddd08b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2460,11 +2473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8713714233665154809, guid: a033e56a7359b64499f781aa44ddd08b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 53.957886
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8713714233665154809, guid: a033e56a7359b64499f781aa44ddd08b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -22.619507
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8713714233665154809, guid: a033e56a7359b64499f781aa44ddd08b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2477,6 +2490,10 @@ PrefabInstance:
     - target: {fileID: 8713714233665154809, guid: a033e56a7359b64499f781aa44ddd08b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713714233665154809, guid: a033e56a7359b64499f781aa44ddd08b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
