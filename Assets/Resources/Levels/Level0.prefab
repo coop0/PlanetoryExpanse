@@ -69,9 +69,9 @@ RectTransform:
   m_Children:
   - {fileID: 7030848395698929132}
   - {fileID: 6095886093833168154}
-  - {fileID: 388687191772511109}
-  - {fileID: 4017721010032873606}
   - {fileID: 7128768793944530080}
+  - {fileID: 4017721010032873606}
+  - {fileID: 388687191772511109}
   - {fileID: 2640431419596095698}
   m_Father: {fileID: 2103642386147019881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -115,10 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 108
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -181,11 +181,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 328.6362
+      value: 709.416
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 224.4998
+      value: 346.5696
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -217,11 +229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -113.045685
+      value: -710
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -77.22443
+      value: 366.72
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -234,6 +246,10 @@ PrefabInstance:
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -255,8 +271,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 768540550549974296, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_text
-      value: Click on a launcher to fire all launchers, note you can still affect
-        the planets while the projectile is en-route
+      value: Press space or click on a launcher to fire! Remember, you can still
+        scale the planets while your projectiles are en-route
       objectReference: {fileID: 0}
     - target: {fileID: 8482752182944010702, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_Name
@@ -288,11 +304,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 328.6362
+      value: 640.7587
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 224.4998
+      value: 431.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -324,11 +348,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -285
+      value: -770
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -159
+      value: -253
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -362,8 +386,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 768540550549974296, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_text
-      value: You can make a star bigger by hitting left-click on the star. To make
-        a star smaller, use right click.
+      value: Left and right click on a star to change its mass. The stronger the
+        mass, the harder it will pull on your projectiles
       objectReference: {fileID: 0}
     - target: {fileID: 8482752182944010702, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_Name
@@ -395,11 +419,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 328.6362
+      value: 813.1846
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 224.4998
+      value: 372.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -431,11 +467,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 240
+      value: -327
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 104
+      value: 61.76
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -448,6 +484,10 @@ PrefabInstance:
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -593,7 +633,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 768540550549974296, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_text
-      value: You can rotate the launcher by clicking on the rotation handle!
+      value: You can rotate the launcher by clicking on its rotation handle!
       objectReference: {fileID: 0}
     - target: {fileID: 8482752182944010702, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_Name
@@ -625,11 +665,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 328.6362
+      value: 653.4696
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 224.4998
+      value: 297.3743
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -661,11 +709,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -285
+      value: -579
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -159
+      value: -438
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -777,8 +825,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 768540550549974296, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_text
-      value: Your score will be calculated by the velocity on impact (the harder
-        you can hit it), flight time (the longer the better!)
+      value: Hitting planets increases your score! Longer flight times and faster
+        impact velocities will reward you with higher scores
       objectReference: {fileID: 0}
     - target: {fileID: 8482752182944010702, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_Name
@@ -810,11 +858,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 328.6362
+      value: 695.2563
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 224.4998
+      value: 378.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -846,11 +902,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 328
+      value: 574.4568
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 112.25
+      value: 4.3932
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -946,8 +1002,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 768540550549974296, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_text
-      value: Beware, making stars bigger and smaller uses fuel, if you have too much
-        or no fuel you wont be able to perform your action!
+      value: Beware, making stars bigger and smaller uses fuel, Keep an eye on it
+        with this gauge!
       objectReference: {fileID: 0}
     - target: {fileID: 8482752182944010702, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_Name
@@ -979,11 +1035,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 328.6362
+      value: 644.2485
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 224.4998
+      value: 348.0998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1015,11 +1079,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -101
+      value: 446
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 174
+      value: 422
       objectReference: {fileID: 0}
     - target: {fileID: 8958840517404194613, guid: 0b8f66b1169920847b84d0c1e406da42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
