@@ -4,6 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private Canvas _menuCanvas;
+    [SerializeField] private Canvas _levelCanvas;
+    private void Start()
+    {
+        _menuCanvas.gameObject.SetActive(true);
+        _levelCanvas.gameObject.SetActive(false);
+    }
+
     private WaitForSeconds _harpDelay = new WaitForSeconds(1.5f);
 
     public void ExitGame()
@@ -19,6 +27,8 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator DelayedLoad(string levelName)
     {
+        _menuCanvas.gameObject.SetActive(false);
+        _levelCanvas.gameObject.SetActive(false);
         // Wait for harp
         yield return _harpDelay;
 
