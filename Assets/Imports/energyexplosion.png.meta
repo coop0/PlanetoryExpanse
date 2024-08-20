@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: energyexplosion_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1402
+        width: 701
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14f922641a62ffe49b09da0bf56332df
+      internalID: -708426786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyexplosion_1
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 1402
+        width: 701
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb01b8644ff1655449de1acf7c92768d
+      internalID: 1058656731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyexplosion_2
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 1402
+        width: 701
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 850e01bb4af431046a28aad63c87ef98
+      internalID: 1018886337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyexplosion_3
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 1402
+        width: 701
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5f80f194ccf4704a906333eac9e450c
+      internalID: -1736778678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyexplosion_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 701
+        width: 701
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf05c6fe9a15a69469e746e2d3ada3ff
+      internalID: 1574476885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyexplosion_5
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 701
+        width: 701
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9b42b5009a16d48a79774cc8d618f2
+      internalID: 813693661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyexplosion_6
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 701
+        width: 701
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049107099d7eb9e4d8e2c762c9f12107
+      internalID: -271293516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyexplosion_7
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 701
+        width: 701
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04e5cae31bb284b49a10df9b4a2d20aa
+      internalID: 4032416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyexplosion_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 701
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 843335c531a3b0545acc02883963fc2b
+      internalID: 1213255169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyexplosion_9
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 0
+        width: 701
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17dd8f519a9e3bb48b37736929e737d0
+      internalID: -1881402210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyexplosion_10
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 0
+        width: 701
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2ede5a6af9baa44489e73f98794fbe7
+      internalID: 192362656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: energyexplosion_11
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 0
+        width: 701
+        height: 701
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69837c1f15f72014981c961104cd3f09
+      internalID: -1082500286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +358,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      energyexplosion_0: -708426786
+      energyexplosion_1: 1058656731
+      energyexplosion_10: 192362656
+      energyexplosion_11: -1082500286
+      energyexplosion_2: 1018886337
+      energyexplosion_3: -1736778678
+      energyexplosion_4: 1574476885
+      energyexplosion_5: 813693661
+      energyexplosion_6: -271293516
+      energyexplosion_7: 4032416
+      energyexplosion_8: 1213255169
+      energyexplosion_9: -1881402210
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
