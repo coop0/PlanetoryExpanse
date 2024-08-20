@@ -57,12 +57,17 @@ public class ScoreHandler : MonoBehaviour
         _points += points;
         UpdateDisplay();
     }
-
-    private void UpdateDisplay()
+    public void SpawnScoreText(Vector2 position, int score)
     {
-        _display.text = "Score: " + _points.ToString();
-    }
+        GameObject scoreText = Instantiate(scoreTextPrefab, position, Quaternion.identity);
 
+        scoreText.transform.position = position;
+
+        TextMeshPro textMeshPro = scoreText.GetComponent<TextMeshPro>();
+        textMeshPro.text = score.ToString();
+
+        Destroy(scoreText, textDuration);
+    }
     public void ShowEndGameUi(bool active) {
         string successDefeat = "";
         if (_hitRecord.Count > 0) {
