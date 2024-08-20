@@ -33,12 +33,10 @@ public class ScoreHandler : MonoBehaviour
     private void Start()
     {
         _points = 0;
-        UpdateDisplay();
     }
     public void ResetScore() {
         _points = 0;
         _hitRecord.Clear();
-        UpdateDisplay();
     }
     public void AddHit(float mass, float velocity, int n, float flightTime) 
     {
@@ -55,7 +53,6 @@ public class ScoreHandler : MonoBehaviour
     public void AddPoints(int points)
     {
         _points += points;
-        UpdateDisplay();
     }
     public void SpawnScoreText(Vector2 position, int score)
     {
