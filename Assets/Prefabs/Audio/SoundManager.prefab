@@ -44,8 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2a0430ea4cf274996f91cc42de032d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioObject: {fileID: 4581276360476676369, guid: df5fb7099ce64e148b724e014226b528, type: 3}
-  _backgroundMusic: {fileID: 0}
+  _sfxObj: {fileID: 4581276360476676369, guid: df5fb7099ce64e148b724e014226b528, type: 3}
+  _pianoObj: {fileID: 7974645127103696662, guid: 8ec8ac0af15f47d48aa4c1211acda8b7, type: 3}
+  _timpaniObj: {fileID: 7974645127103696662, guid: 09915726956c8224eba15f2de95c8862, type: 3}
+  _musicObj: {fileID: 2679283439868264612, guid: 772b0c7b5ab20844bb2589ffbade9af5, type: 3}
+  _backgroundMusic: {fileID: 8300000, guid: a3508ec9f30b8a347b50b577f543ef8e, type: 3}
   _FireSFX: {fileID: 0}
   _HitSFX: {fileID: 0}
   _ButtonSFX: {fileID: 0}
@@ -99,3 +102,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 704a28eff0daacf478fcca2a933b27ed, type: 3}
   - {fileID: 8300000, guid: b7d69ad1263672c47aa623de5d1d5635, type: 3}
   - {fileID: 8300000, guid: 05022e1e682ecb24bb68f89530f3727d, type: 3}
+  _timpaniNotes:
+  - {fileID: 8300000, guid: fb735cebb2fc8af48a0d9cb17612b927, type: 3}
+  - {fileID: 8300000, guid: 8c847d0780ababc45b3d94bbaf076862, type: 3}
+  - {fileID: 8300000, guid: 2e8157654e369f04eb99288534a394b5, type: 3}
+  - {fileID: 8300000, guid: 10842a0cd0480054086a4fdee8514322, type: 3}
+  - {fileID: 8300000, guid: 7c844d7ab558acb47a7baf74c0755855, type: 3}

@@ -64,6 +64,10 @@ public class Launcher : MonoBehaviour
     {
         if (_inventory.Count == 0 || !_canFire) return;
         _canFire = false;
+
+        // Play sound
+        SoundManager.Instance.PlayRandomHarp();
+
         // Get next missile
         Attractable projectile = _inventory[0];
         _inventory.RemoveAt(0);
@@ -94,6 +98,7 @@ public class Launcher : MonoBehaviour
     IEnumerator DelayedUpdateInventory()
     {
         yield return new WaitForSeconds(0.5f);
+        // Opt. Add reload sound here
         _canFire = true;
         UpdateInventory();
     }

@@ -9,14 +9,16 @@ public class SoundManager : MonoBehaviour
 {
     public AudioSource _audioSource { get; private set; }
     [SerializeField] private AudioSource _sfxObj;
+    [SerializeField] private AudioSource _pianoObj;
+    [SerializeField] private AudioSource _harpObj;
+    [SerializeField] private AudioSource _timpaniObj;
     [SerializeField] private AudioSource _musicObj;
     [SerializeField] private AudioClip _backgroundMusic;
-    [SerializeField] private AudioClip _FireSFX;
-    [SerializeField] private AudioClip _HitSFX;
-    [SerializeField] private AudioClip _ButtonSFX;
     [SerializeField] private List<AudioClip> _pianoNotes;
+    [SerializeField] private List<AudioClip> _harpNotes;
     [SerializeField] private List<AudioClip> _timpaniNotes;
-    [SerializeField] private Queue<AudioClip> _clipQueue;
+    [SerializeField] private Queue<AudioClip> _pianoQueue;
+    private int lastNote; // Reused for piano and timpani on purpose.
 
     public static SoundManager Instance { get; private set; }
     private void Awake()
@@ -27,7 +29,7 @@ public class SoundManager : MonoBehaviour
     }
     private void Start()
     {
-        _clipQueue = new();
+        _pianoQueue = new();
         StartAmbience();
     }
     private void StartAmbience()
@@ -42,35 +44,56 @@ public class SoundManager : MonoBehaviour
             obj.clip = track;
         }
     }
-    public void PlaySFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    public void PlaySFXClip(AudioClip audioClip, Transform spawnTransform, AudioSource sourceObject=null)
     {
-        // Create instance of prefab and assign parameters.
-        AudioSource audioSource = Instantiate(_sfxObj, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource;
+        if (sourceObject == null)
+        {
+            // Create instance of prefab and assign parameters.
+             audioSource = Instantiate(_sfxObj, spawnTransform.position, Quaternion.identity);
+        }
+        else
+        {
+            audioSource = Instantiate(sourceObject, spawnTransform.position, Quaternion.identity);
+        }
         audioSource.clip = audioClip;
-        audioSource.volume = volume;
+        audioSource.volume = 1f;
         audioSource.Play();
         Destroy(audioSource.gameObject, audioSource.clip.length);
     }
 
-    [ContextMenu("Random note")]
+    [ContextMenu("Random timpani")]
     public void PlayRandomTimpani()
     {
-        int rand = Random.Range(0, _timpaniNotes.Count);
-        PlaySFXClip(_timpaniNotes[rand], transform, 1f);
+        int rand = lastNote;
+        while (rand == lastNote)
+        {
+            rand = Random.Range(0, _timpaniNotes.Count);
+        }
+        PlaySFXClip(_timpaniNotes[rand], transform, _timpaniObj);
+    }
+    [ContextMenu("Random note")]
+    public void PlayRandomHarp()
+    {
+        int rand = lastNote;
+        while (rand == lastNote)
+        {
+            rand = Random.Range(0, _harpNotes.Count);
+        }
+        PlaySFXClip(_harpNotes[rand], transform, _harpObj);
     }
 
-    int lastNote;
     public void PlayPercentage(float p)
     {
-        int note = Mathf.RoundToInt(_pianoNotes.Count * p); // Offset reduces murky sounds
+        int note = Mathf.RoundToInt(_pianoNotes.Count * p);
         // Adding a random element increases interest when jiggling around the borders.
         if (note == lastNote) note += Random.Range(-1, 1);
         if (note >= _pianoNotes.Count) note = _pianoNotes.Count - Random.Range(1, 2);
         if(note < 0) note = Random.Range(0, 2);
 
-        if(_clipQueue.Count < 1) // This makes jazz. The theory is complicated.
+        if(_pianoQueue.Count < 1) // This makes jazz. The theory is complicated.
         {
-            _clipQueue.Enqueue(_pianoNotes[note]);
+            _pianoQueue.Enqueue(_pianoNotes[note]);
             lastNote = note;
         }
         else
@@ -81,7 +104,7 @@ public class SoundManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(_clipQueue.Count > 0) StartCoroutine(QueuePause());
+        if(_pianoQueue.Count > 0) StartCoroutine(QueuePause());
     }
 
     WaitForSeconds shortPause;
@@ -96,7 +119,7 @@ public class SoundManager : MonoBehaviour
         if (!paused)
         {
             paused = true;
-            PlaySFXClip(_clipQueue.Dequeue(), transform, 1f);
+            PlaySFXClip(_pianoQueue.Dequeue(), transform, _pianoObj);
             yield return shortPause;
             paused = false;
         }

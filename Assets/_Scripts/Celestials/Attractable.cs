@@ -16,6 +16,7 @@ public abstract class Attractable : MonoBehaviour
         if (Mathf.Abs(transform.position.x) > 30 || Mathf.Abs(transform.position.y) > 20)
         {
             GameManager.RemoveAttractable(this);
+            SoundManager.Instance.PlayRandomTimpani();
             Destroy(gameObject);
         }
     }

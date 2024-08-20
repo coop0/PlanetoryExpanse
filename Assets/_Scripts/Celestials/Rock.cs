@@ -37,14 +37,18 @@ public class Rock : Attractable
             }
         }
     }
+    WaitForSeconds _timpaniPause;
 
     [ContextMenu("Explode")]
     private IEnumerator Explode()
     {
-        SoundManager.Instance.PlayRandomTimpani();
+        if(_timpaniPause == null) _timpaniPause = new WaitForSeconds(0.25f); // Needs to be half the explosion animation length
         _rb.simulated = false;
         _animator.SetTrigger("TrExplosion");
-        yield return new WaitForSeconds(0.5f);
+        SoundManager.Instance.PlayRandomTimpani();
+        yield return _timpaniPause;
+        SoundManager.Instance.PlayRandomTimpani();
+        yield return _timpaniPause;
         GameManager.RemoveAttractable(this);
         Destroy(gameObject);
     }
