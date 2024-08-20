@@ -6,7 +6,6 @@ using UnityEngine;
 public class ScoreHandler : MonoBehaviour
 {
     private static int _points;
-    [SerializeField] private TextMeshProUGUI _display;
     [SerializeField] private GameObject levelEndUi;
     [SerializeField] private TextMeshProUGUI successHeading;
 
@@ -18,6 +17,8 @@ public class ScoreHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fuelUsedUI;
     [SerializeField] private TextMeshProUGUI shortestFlightUI;
 
+    [SerializeField] public GameObject scoreTextPrefab;  // Reference to the TextMeshPro prefab
+    public float textDuration = 2f; 
     private List<List<float>> _hitRecord = new List<List<float>>();
     public static ScoreHandler Instance { get; private set; }
     private void Awake()
