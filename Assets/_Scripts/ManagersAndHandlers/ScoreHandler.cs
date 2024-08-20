@@ -7,8 +7,6 @@ public class ScoreHandler : MonoBehaviour
 {
     private static int _points;
     [SerializeField] private GameObject levelEndUi;
-    [SerializeField] private TextMeshProUGUI successHeading;
-
     [SerializeField] private TextMeshProUGUI totalScoreUI;
     [SerializeField] private TextMeshProUGUI fastestHitUI;
     [SerializeField] private TextMeshProUGUI slowestHitUI;
@@ -75,16 +73,8 @@ public class ScoreHandler : MonoBehaviour
         Destroy(scoreText, textDuration);
     }
     public void ShowEndGameUi(bool active) {
-        string successDefeat = "";
-        if (_hitRecord.Count > 0) {
-            successDefeat = "Sucess!";
-        }
-        else {
-            successDefeat = "Failure! :(";
-        }
         levelEndUi.SetActive(active);
         PopulateScoreCard();
-        successHeading.text = successDefeat;
     }
     public void PopulateScoreCard() {
         float totalFuelUsed = GameManager.Instance.GetTotalFuelUsed();
