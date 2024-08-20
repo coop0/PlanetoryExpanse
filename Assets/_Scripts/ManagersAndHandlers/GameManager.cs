@@ -69,6 +69,9 @@ public class GameManager : MonoBehaviour
             if (isPaused) ResumeGame();
             else PauseGame();
         }
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            ShootLaunchers();
+        }
     }
     private void FixedUpdate()
     {
