@@ -14,7 +14,7 @@ public class Target : MonoBehaviour
         else
         {
             Attractable attractable = collision.gameObject.GetComponent<Attractable>();
-            ScoreHandler.Instance.AddHit (rb.mass, rb.velocity.magnitude, n, attractable.shotTime);
+            ScoreHandler.Instance.AddHit (rb.mass, rb.velocity.magnitude, n, attractable.shotTime, collision.gameObject.transform.position);
             n+=1;
         }
     }

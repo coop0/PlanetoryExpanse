@@ -18,6 +18,7 @@ public class ScoreHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI shortestFlightUI;
 
     [SerializeField] public GameObject scoreTextPrefab;  // Reference to the TextMeshPro prefab
+    [SerializeField] public GameObject uiCanvas;
     public float textDuration = 2f; 
     private List<List<float>> _hitRecord = new List<List<float>>();
     public static ScoreHandler Instance { get; private set; }
@@ -38,7 +39,7 @@ public class ScoreHandler : MonoBehaviour
         _points = 0;
         _hitRecord.Clear();
     }
-    public void AddHit(float mass, float velocity, int n, float flightTime) 
+    public void AddHit(float mass, float velocity, int n, float flightTime, Vector2 position) 
     {
         List<float> hit = new List<float>();
         hit.Add(mass);
@@ -48,21 +49,29 @@ public class ScoreHandler : MonoBehaviour
         hit.Add(score);
         hit.Add(flightTime);
         _hitRecord.Add(hit);
+        SpawnScoreText(position, score);
         AddPoints(score);
     }
     public void AddPoints(int points)
     {
         _points += points;
     }
-    public void SpawnScoreText(Vector2 position, int score)
+ public void SpawnScoreText(Vector2 worldPosition, int score)
     {
-        GameObject scoreText = Instantiate(scoreTextPrefab, position, Quaternion.identity);
+        // Convert world position to screen position
+        Vector2 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
 
-        scoreText.transform.position = position;
+        // Instantiate the score text as a child of the Canvas
+        GameObject scoreText = Instantiate(scoreTextPrefab, uiCanvas.transform);
 
-        TextMeshPro textMeshPro = scoreText.GetComponent<TextMeshPro>();
+        // Set the position of the text on the Canvas
+        scoreText.transform.position = screenPosition;
+
+        // Set the text value
+        TextMeshProUGUI textMeshPro = scoreText.GetComponent<TextMeshProUGUI>();
         textMeshPro.text = score.ToString();
 
+        // Destroy the text object after a duration
         Destroy(scoreText, textDuration);
     }
     public void ShowEndGameUi(bool active) {
