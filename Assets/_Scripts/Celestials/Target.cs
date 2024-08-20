@@ -13,7 +13,8 @@ public class Target : MonoBehaviour
         }
         else
         {
-            ScoreHandler.Instance.AddHit (rb.mass, rb.velocity.magnitude, n);
+            Attractable attractable = collision.gameObject.GetComponent<Attractable>();
+            ScoreHandler.Instance.AddHit (rb.mass, rb.velocity.magnitude, n, attractable.shotTime);
             n+=1;
         }
     }
