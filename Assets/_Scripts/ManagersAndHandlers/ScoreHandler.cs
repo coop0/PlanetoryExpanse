@@ -44,7 +44,7 @@ public class ScoreHandler : MonoBehaviour
         hit.Add(mass);
         hit.Add(velocity);
         hit.Add(n);
-        int score = Mathf.RoundToInt(velocity);
+        int score = Mathf.RoundToInt(velocity * flightTime);
         hit.Add(score);
         hit.Add(flightTime);
         _hitRecord.Add(hit);

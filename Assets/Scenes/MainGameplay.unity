@@ -1120,7 +1120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceBarFill: {fileID: 429443305}
   AvailableFuel: 30
-  MaxFuel: 400
+  MaxFuel: 200
   DrainSpeed: 100
   FillSpeed: 100
   fuelUsed: 0
