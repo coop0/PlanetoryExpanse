@@ -69,6 +69,9 @@ public class GameManager : MonoBehaviour
             if (isPaused) ResumeGame();
             else PauseGame();
         }
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            ShootLaunchers();
+        }
     }
     private void FixedUpdate()
     {
@@ -169,5 +172,10 @@ public class GameManager : MonoBehaviour
     }
     public float GetTotalFuelUsed() {
         return this.fuelManager.fuelUsed;
+    }
+    public void ShootLaunchers() {
+        foreach (Launcher launcher in _launchers) {
+            launcher.TryFire();
+        }
     }
 }
