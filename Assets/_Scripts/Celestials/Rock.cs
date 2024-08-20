@@ -48,6 +48,7 @@ public class Rock : Attractable
     {
         if(_timpaniPause == null) _timpaniPause = new WaitForSeconds(0.25f); // Needs to be half the explosion animation length
         _rb.simulated = false;
+        transform.localScale = new Vector3(0.25f, 0.25f, 1);
         _animator.SetTrigger("TrExplosion");
         SoundManager.Instance.PlayRandomTimpani();
         yield return _timpaniPause;
