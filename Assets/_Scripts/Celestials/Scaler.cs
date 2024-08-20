@@ -20,12 +20,13 @@ public class Scaler : MonoBehaviour
     {
         if (amount > 0) {
             if (rb.mass >= _max) {
-
+                SoundManager.Instance.PlayPercentage(0);
                 return false;
             }
         }
         else {
             if (rb.mass <= _min) {
+                SoundManager.Instance.PlayPercentage(100);
                 return false;
             }
         } 
