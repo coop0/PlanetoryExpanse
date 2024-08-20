@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI; // Reference to the Pause Menu UI
     [SerializeField] private FuelManager fuelManager;
     [SerializeField] private ScoreHandler scoreHandler;
+    private bool isFinished = false;
     private bool isPaused = false; // Track if the game is paused
     public static GameManager Instance { get; private set; }
     private void Awake()
@@ -66,8 +67,11 @@ public class GameManager : MonoBehaviour
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) // Press 'Escape' to pause/unpause
         {
-            if (isPaused) ResumeGame();
-            else PauseGame();
+            if (!isFinished) {
+                if (isPaused) ResumeGame();
+                else PauseGame();
+            }
+            
         }
         if (Input.GetKeyDown(KeyCode.Space)) {
             ShootLaunchers();
@@ -93,6 +97,7 @@ public class GameManager : MonoBehaviour
 
         if (OutOfObjects) {
             Time.timeScale = 0f; // Freeze the game
+            isFinished = true;
             ScoreHandler.Instance.ShowEndGameUi(true);
         }
     }
@@ -160,6 +165,7 @@ public class GameManager : MonoBehaviour
     public void RestartLevel() {
         levelManager.ReloadCurrentLevel();
         ResumeGame();
+        isFinished = false;
         ScoreHandler.Instance.ShowEndGameUi(false);
     }
 
@@ -167,6 +173,7 @@ public class GameManager : MonoBehaviour
         print("Trying to load next level");
         levelManager.LoadNextLevel();
         ResumeGame();
+        isFinished = false;
         ScoreHandler.Instance.ShowEndGameUi(false);
 
     }
