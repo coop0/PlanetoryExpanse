@@ -134,4 +134,7 @@ public class Launcher : MonoBehaviour
     public bool IsEmpty() {
         return _inventory.Count == 0;
     }
+    public void ShootAllLaunchers() {
+        GameManager.Instance.ShootLaunchers();
+    }
 }

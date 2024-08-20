@@ -745,7 +745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2903759222520810773
 Transform:
   m_ObjectHideFlags: 0
@@ -777,8 +777,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3164906629010347638}
-        m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
-        m_MethodName: TryFire
+        m_TargetAssemblyTypeName: Launcher, Assembly-CSharp
+        m_MethodName: ShootAllLaunchers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
