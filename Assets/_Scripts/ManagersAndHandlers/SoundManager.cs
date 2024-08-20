@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _HitSFX;
     [SerializeField] private AudioClip _ButtonSFX;
     [SerializeField] private List<AudioClip> _pianoNotes;
+    [SerializeField] private List<AudioClip> _timpaniNotes;
     [SerializeField] private Queue<AudioClip> _clipQueue;
 
     public static SoundManager Instance { get; private set; }
@@ -52,10 +53,10 @@ public class SoundManager : MonoBehaviour
     }
 
     [ContextMenu("Random note")]
-    public void PlayRandomPianoNote()
+    public void PlayRandomTimpani()
     {
-        int rand = Random.Range(0, _pianoNotes.Count);
-        PlaySFXClip(_pianoNotes[rand], transform, 1f);
+        int rand = Random.Range(0, _timpaniNotes.Count);
+        PlaySFXClip(_timpaniNotes[rand], transform, 1f);
     }
 
     int lastNote;

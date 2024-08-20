@@ -41,6 +41,7 @@ public class Rock : Attractable
     [ContextMenu("Explode")]
     private IEnumerator Explode()
     {
+        SoundManager.Instance.PlayRandomTimpani();
         _rb.simulated = false;
         _animator.SetTrigger("TrExplosion");
         yield return new WaitForSeconds(0.5f);
