@@ -33,7 +33,11 @@ public class Rock : Attractable
             }
             else
             {
-                //print("touching " + collision.collider.tag);
+                if (shot) {
+                    if (collision.collider.gameObject.layer == 2) {
+                        StartCoroutine(Explode());
+                    }
+                }
             }
         }
     }
@@ -52,5 +56,7 @@ public class Rock : Attractable
         GameManager.RemoveAttractable(this);
         Destroy(gameObject);
     }
+
+
 
 }

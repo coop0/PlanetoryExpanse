@@ -31,7 +31,14 @@ public class Launcher : MonoBehaviour
         AddRock();
         AddRock();
     }
-    
+    public void Update() {
+        //Handle checking the _inventory array for objects that have been destroyed
+        for (int i = _inventory.Count - 1; i >= 0; i--) {
+            if (_inventory[i] == null) {
+                _inventory.RemoveAt(i);
+            }
+        }
+    }
     private void UpdateInventory()
     {
         for(int i = 0; i < _inventory.Count && i < nodes.Count; i++)
@@ -87,7 +94,7 @@ public class Launcher : MonoBehaviour
         var initVel = (new Vector3(angleVector.x, angleVector.y) * projectile.FireMagnitude);
         projectile.GetComponent<Rigidbody2D>().velocity = initVel;
         print(initVel + " => Magnitude " +  projectile.FireMagnitude + ", Angle: " + angleVector);
-        
+        projectile.setShot(true);
         // Load next missile
         StartCoroutine(DelayedUpdateInventory());
     }
