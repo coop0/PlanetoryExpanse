@@ -62,7 +62,7 @@ public class ScoreHandler : MonoBehaviour
 
     public void ShowEndGameUi(bool active) {
         string successDefeat = "";
-        if (_hitRecord.Count >= 3) {
+        if (_hitRecord.Count > 0) {
             successDefeat = "Sucess!";
         }
         else {

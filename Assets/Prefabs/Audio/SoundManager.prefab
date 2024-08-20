@@ -46,12 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sfxObj: {fileID: 4581276360476676369, guid: df5fb7099ce64e148b724e014226b528, type: 3}
   _pianoObj: {fileID: 7974645127103696662, guid: 8ec8ac0af15f47d48aa4c1211acda8b7, type: 3}
+  _harpObj: {fileID: 8422410499131006966, guid: e75a2dab6f0d37b4f9ccfa4f0ed98301, type: 3}
   _timpaniObj: {fileID: 7974645127103696662, guid: 09915726956c8224eba15f2de95c8862, type: 3}
   _musicObj: {fileID: 2679283439868264612, guid: 772b0c7b5ab20844bb2589ffbade9af5, type: 3}
   _backgroundMusic: {fileID: 8300000, guid: a3508ec9f30b8a347b50b577f543ef8e, type: 3}
-  _FireSFX: {fileID: 0}
-  _HitSFX: {fileID: 0}
-  _ButtonSFX: {fileID: 0}
   _pianoNotes:
   - {fileID: 8300000, guid: 8215a06f03c9a9c4788e99f0231ccf52, type: 3}
   - {fileID: 8300000, guid: b2e33407566778540ab9d0138a439350, type: 3}
@@ -102,6 +100,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 704a28eff0daacf478fcca2a933b27ed, type: 3}
   - {fileID: 8300000, guid: b7d69ad1263672c47aa623de5d1d5635, type: 3}
   - {fileID: 8300000, guid: 05022e1e682ecb24bb68f89530f3727d, type: 3}
+  _harpNotes:
+  - {fileID: 8300000, guid: 6dbfd3d8f0f82ec4e8cf20c8044805ed, type: 3}
+  - {fileID: 8300000, guid: 1240964d35239d54c80d972722bf1aa8, type: 3}
+  - {fileID: 8300000, guid: 32d51431b74175f4c9fb9a16c3641c00, type: 3}
+  - {fileID: 8300000, guid: cb8f3d4b60884a240a195e868ade04e1, type: 3}
+  - {fileID: 8300000, guid: f8ca7aa95fd1df7469f6c0eb2625abd5, type: 3}
+  - {fileID: 8300000, guid: 644b37e1191fed84fbe72a1a8736558c, type: 3}
   _timpaniNotes:
   - {fileID: 8300000, guid: fb735cebb2fc8af48a0d9cb17612b927, type: 3}
   - {fileID: 8300000, guid: 8c847d0780ababc45b3d94bbaf076862, type: 3}
